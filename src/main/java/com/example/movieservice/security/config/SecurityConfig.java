@@ -39,7 +39,6 @@ public class SecurityConfig {
                         "/languages/**","/filmcategory/**","/roles/**").hasAuthority(Roles.ADMINISTRATOR)
                 .requestMatchers(HttpMethod.GET,"/actors/**","/films/**","/categories/**",
                         "/languages/**","/filmcategory/**").authenticated()
-                .requestMatchers("/authentication/**").permitAll()
                 .anyRequest().permitAll()
                 .and()
                 .sessionManagement()
