@@ -1,5 +1,6 @@
 package com.example.movieservice.security.service;
 
+import com.example.movieservice.model.Authority;
 import com.example.movieservice.model.Role;
 import com.example.movieservice.model.dto.AuthenticationDto;
 import com.example.movieservice.model.dto.AuthenticationResponseDto;
@@ -40,8 +41,8 @@ public class AuthenticationService {
        userEntity.setLastName(userDto.lastName());
        userEntity.setUsername(userDto.username());
        userEntity.setPassword(passwordEncoder.encode(userDto.password()));
-       for(int i:userDto.roles()){
-           Optional<Role> optionalRole=roleRepository.findById(i);
+       for(String i:userDto.roles()){
+           Optional<Role> optionalRole=roleRepository.findByName(Authority.valueOf(i));
            if(optionalRole.isPresent()){
                Role role=optionalRole.get();
                userEntity.getRoles().add(role);

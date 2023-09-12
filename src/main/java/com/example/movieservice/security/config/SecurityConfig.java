@@ -1,5 +1,7 @@
 package com.example.movieservice.security.config;
 
+import com.example.movieservice.model.Role;
+import com.example.movieservice.model.Roles;
 import com.example.movieservice.security.service.JwtAuthenticationFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -29,9 +31,16 @@ public class SecurityConfig {
                 .csrf()
                 .disable()
                 .authorizeHttpRequests()
-                .requestMatchers("/films").hasAuthority("USER")
+                .requestMatchers(HttpMethod.POST,"/actors","/films","/categories",
+                        "/languages","/filmcategory","/roles").hasAuthority(Roles.ADMINISTRATOR)
+                .requestMatchers(HttpMethod.DELETE,"/actors/**","/films/**","/categories/**",
+                        "/languages/**","/filmcategory/**","/roles/**").hasAuthority(Roles.ADMINISTRATOR)
+                .requestMatchers(HttpMethod.PUT,"/actors/**","/films/**","/categories/**",
+                        "/languages/**","/filmcategory/**","/roles/**").hasAuthority(Roles.ADMINISTRATOR)
+                .requestMatchers(HttpMethod.GET,"/actors/**","/films/**","/categories/**",
+                        "/languages/**","/filmcategory/**").authenticated()
                 .requestMatchers("/authentication/**").permitAll()
-                .anyRequest().authenticated()
+                .anyRequest().permitAll()
                 .and()
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)

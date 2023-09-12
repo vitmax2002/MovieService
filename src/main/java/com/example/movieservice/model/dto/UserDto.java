@@ -6,5 +6,5 @@ public record UserDto(String firstName,
                       String lastName,
                       String username,
                       String password,
-                      List<Integer> roles) {
+                      List<String> roles) {
 }
