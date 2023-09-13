@@ -3,6 +3,7 @@ package com.example.movieservice.controller;
 import com.example.movieservice.model.Actor;
 import com.example.movieservice.model.Category;
 import com.example.movieservice.service.ActorService;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,7 +21,7 @@ public class ActorController {
     }
 
     @PostMapping
-    public ResponseEntity<Actor> addActor(@RequestBody Actor actor){
+    public ResponseEntity<Actor> addActor(@Valid @RequestBody Actor actor){
         Actor createdActor= actorService.addActor(actor);
         return ResponseEntity.created(URI.create("/api/v1/actors")).body(createdActor);
     }
@@ -32,7 +33,7 @@ public class ActorController {
     }
 
     @PutMapping("/{actorId}")
-    public ResponseEntity<Actor> updateActor(@PathVariable int actorId, @RequestBody Actor actor){
+    public ResponseEntity<Actor> updateActor(@PathVariable int actorId,@Valid @RequestBody Actor actor){
         Actor updatedActor=actorService.updateActor(actorId,actor);
         return ResponseEntity.ok().body(updatedActor);
     }

@@ -3,6 +3,7 @@ package com.example.movieservice.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 
 
 import java.io.Serializable;
@@ -16,6 +17,7 @@ public class Language implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int languageId;
+    @NotBlank(message = "Give a name for language")
     private String name;
     private LocalDateTime lastUpdate;
 

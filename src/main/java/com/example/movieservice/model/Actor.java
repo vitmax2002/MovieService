@@ -2,6 +2,8 @@ package com.example.movieservice.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -15,7 +17,9 @@ public class Actor {
     @SequenceGenerator(name ="sequence" ,sequenceName ="sequence" ,initialValue =1,allocationSize =1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "sequence")
     private int actorId;
+    @NotBlank
     private String firstName;
+    @NotBlank
     private String lastName;
 
     @ManyToMany(mappedBy = "actors",cascade = CascadeType.ALL)

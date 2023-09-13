@@ -4,6 +4,7 @@ import com.example.movieservice.model.Category;
 import com.example.movieservice.model.FilmCategory;
 import com.example.movieservice.model.dto.FilmCategoryDto;
 import com.example.movieservice.service.CategoryService;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,7 +21,7 @@ public class CategoryController {
     }
 
     @PostMapping
-    public ResponseEntity<Category> addCategory(@RequestBody Category category){
+    public ResponseEntity<Category> addCategory(@Valid @RequestBody Category category){
          Category createdCategory=categoryService.addCategory(category);
          return ResponseEntity.ok().body(createdCategory);
     }
@@ -32,7 +33,7 @@ public class CategoryController {
     }
 
     @PutMapping("/{categoryId}")
-    public ResponseEntity<Category> updateCategory(@PathVariable int categoryId, @RequestBody Category category){
+    public ResponseEntity<Category> updateCategory(@PathVariable int categoryId,@Valid @RequestBody Category category){
         Category updatedCategory=categoryService.updateCategory(categoryId,category);
         return ResponseEntity.ok().body(updatedCategory);
     }

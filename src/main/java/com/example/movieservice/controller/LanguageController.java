@@ -3,6 +3,7 @@ package com.example.movieservice.controller;
 import com.example.movieservice.model.Film;
 import com.example.movieservice.model.Language;
 import com.example.movieservice.service.LanguageService;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,7 +20,7 @@ public class LanguageController {
     }
 
     @PostMapping
-    public ResponseEntity<Language> addLanguage(@RequestBody Language language){
+    public ResponseEntity<Language> addLanguage(@Valid @RequestBody Language language){
         Language createdLanguage=languageService.addLanguage(language);
         return ResponseEntity.ok().body(createdLanguage);
     }
@@ -31,7 +32,7 @@ public class LanguageController {
     }
 
     @PutMapping("/{languageId}")
-    public ResponseEntity<Language> updateLanguage(@PathVariable int languageId, @RequestBody Language language){
+    public ResponseEntity<Language> updateLanguage(@PathVariable int languageId,@Valid @RequestBody Language language){
         Language updatedLanguage=languageService.updateLanguage(languageId,language);
         return ResponseEntity.ok().body(updatedLanguage);
     }

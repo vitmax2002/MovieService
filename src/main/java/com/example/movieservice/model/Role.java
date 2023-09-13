@@ -1,6 +1,7 @@
 package com.example.movieservice.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 
 import java.util.List;
 import java.util.Objects;
@@ -13,6 +14,7 @@ public class Role {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int roleId;
 
+    @NotNull(message = "Choose one authority ADMINISTRATOR or USER")
     @Enumerated(EnumType.STRING)
     private Authority name;
 

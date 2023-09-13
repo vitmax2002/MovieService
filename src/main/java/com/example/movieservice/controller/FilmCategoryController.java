@@ -4,6 +4,7 @@ import com.example.movieservice.model.Film;
 import com.example.movieservice.model.FilmCategory;
 import com.example.movieservice.model.dto.FilmCategoryDto;
 import com.example.movieservice.service.FilmCategoryService;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,7 +21,7 @@ public class FilmCategoryController {
     }
 
     @PostMapping
-    public ResponseEntity<FilmCategory> addFilmCategory(@RequestBody FilmCategoryDto filmCategory){
+    public ResponseEntity<FilmCategory> addFilmCategory(@Valid @RequestBody FilmCategoryDto filmCategory){
         FilmCategory createdFilmcategory=filmCategoryService.addFilmCategory(filmCategory);
         return ResponseEntity.ok().body(createdFilmcategory);
     }
@@ -32,7 +33,7 @@ public class FilmCategoryController {
     }
 
     @PutMapping("/{filmCategoryId}")
-    public ResponseEntity<FilmCategory> updateFilmCategory(@PathVariable int filmCategoryId, @RequestBody FilmCategoryDto filmCategoryDto){
+    public ResponseEntity<FilmCategory> updateFilmCategory(@PathVariable int filmCategoryId,@Valid @RequestBody FilmCategoryDto filmCategoryDto){
         FilmCategory updatedFilmCategory=filmCategoryService.updateFilmCategory(filmCategoryId,filmCategoryDto);
         return ResponseEntity.ok().body(updatedFilmCategory);
     }

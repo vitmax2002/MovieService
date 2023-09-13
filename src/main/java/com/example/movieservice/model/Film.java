@@ -2,6 +2,8 @@ package com.example.movieservice.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 import java.io.Serializable;
 import java.time.Year;
@@ -14,10 +16,14 @@ public class Film implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int filmId;
+    @NotBlank(message = "You should give a title for movie")
     private String title;
+    @NotNull(message = "You should give year")
     private Year year;
 
+    @NotBlank(message = "you should give the length of movie")
     private int length;
+    @NotNull(message = "Choose the rating of film LOW,MEDIUM or HIGH")
     @Enumerated(EnumType.STRING)
     private Rating rating;
 

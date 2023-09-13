@@ -2,6 +2,7 @@ package com.example.movieservice.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 
 import java.io.Serializable;
 import java.util.List;
@@ -14,6 +15,7 @@ public class Category implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int categoryId;
+    @NotBlank(message = "Name can not be empty,write the name")
     private String name;
 
     @JsonIgnore

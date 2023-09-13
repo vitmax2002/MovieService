@@ -2,6 +2,7 @@ package com.example.movieservice.controller;
 
 import com.example.movieservice.model.Film;
 import com.example.movieservice.service.FilmService;
+import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
@@ -22,7 +23,7 @@ public class FilmController {
     }
 
     @PostMapping
-    public ResponseEntity<Film> addFilm(@RequestBody Film film){
+    public ResponseEntity<Film> addFilm(@Valid @RequestBody Film film){
         Film createdFilm=filmService.addFilm(film);
         return ResponseEntity.ok().body(createdFilm);
     }
@@ -34,7 +35,7 @@ public class FilmController {
     }
 
     @PutMapping("/{filmId}")
-    public ResponseEntity<Film> updateFilm(@PathVariable int filmId,@RequestBody Film film){
+    public ResponseEntity<Film> updateFilm(@PathVariable int filmId,@Valid @RequestBody Film film){
         Film updatedFilm=filmService.updateFilm(filmId,film);
         return ResponseEntity.ok().body(updatedFilm);
     }

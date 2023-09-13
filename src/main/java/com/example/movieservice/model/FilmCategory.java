@@ -2,6 +2,7 @@ package com.example.movieservice.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -14,10 +15,13 @@ public class FilmCategory implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int filmCategoryId;
+
+    @NotNull(message ="Film can not be null")
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "film_fk")
     private Film film;
 
+    @NotNull(message ="Category can not be null")
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "category_fk")
     private Category category;
