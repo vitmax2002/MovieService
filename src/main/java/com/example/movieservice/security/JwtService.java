@@ -1,4 +1,4 @@
-package com.example.movieservice.security.service;
+package com.example.movieservice.security;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

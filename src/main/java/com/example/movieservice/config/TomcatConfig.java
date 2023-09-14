@@ -1,4 +1,4 @@
-package com.example.movieservice.security.config;
+package com.example.movieservice.config;
 
 import org.apache.catalina.Context;
 import org.apache.catalina.connector.Connector;

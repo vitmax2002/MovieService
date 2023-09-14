@@ -1,4 +1,4 @@
-package com.example.movieservice.security.service;
+package com.example.movieservice.security;
 
 import com.example.movieservice.model.Authority;
 import com.example.movieservice.model.Role;

@@ -1,4 +1,4 @@
-package com.example.movieservice.security.service;
+package com.example.movieservice.security;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

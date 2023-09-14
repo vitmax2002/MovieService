@@ -1,8 +1,7 @@
-package com.example.movieservice.security.config;
+package com.example.movieservice.config;
 
-import com.example.movieservice.model.Role;
 import com.example.movieservice.model.Roles;
-import com.example.movieservice.security.service.JwtAuthenticationFilter;
+import com.example.movieservice.security.JwtAuthenticationFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;

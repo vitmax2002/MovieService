@@ -1,7 +1,7 @@
 package com.example.movieservice.controller;
 
 import com.example.movieservice.model.Role;
-import com.example.movieservice.security.service.RoleService;
+import com.example.movieservice.service.RoleService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

@@ -1,4 +1,4 @@
-package com.example.movieservice.security.config;
+package com.example.movieservice.config;
 
 
 import com.example.movieservice.repository.UserRepository;
