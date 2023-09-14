@@ -2,6 +2,11 @@ server:
   port: 8080
   servlet:
     context-path: /api/v1
+  ssl:
+    key-alias: coda
+    key-store: classpath:KeyStore.jks
+    key-store-password: 13047804kl
+    key-store-type: JKS
 
 spring:
   application:
