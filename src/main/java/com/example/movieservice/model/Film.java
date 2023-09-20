@@ -23,6 +23,8 @@ public class Film implements Serializable {
 
     @NotBlank(message = "you should give the length of movie")
     private int length;
+    @NotBlank(message = "Give number of places for film")
+    private int places;
     @NotNull(message = "Choose the rating of film LOW,MEDIUM or HIGH")
     @Enumerated(EnumType.STRING)
     private Rating rating;
@@ -45,10 +47,11 @@ public class Film implements Serializable {
     public Film() {
     }
 
-    public Film(String title, Year year, int length, Rating rating, List<FilmCategory> filmCategories, List<Language> languages, List<Actor> actors) {
+    public Film(String title, @NotNull(message = "You should give year") Year year, int length, int places, @NotNull(message = "Choose the rating of film LOW,MEDIUM or HIGH") Rating rating, List<FilmCategory> filmCategories, List<Language> languages, List<Actor> actors) {
         this.title = title;
         this.year = year;
         this.length = length;
+        this.places = places;
         this.rating = rating;
         this.filmCategories = filmCategories;
         this.languages = languages;
@@ -119,18 +122,25 @@ public class Film implements Serializable {
         this.rating = rating;
     }
 
+    public int getPlaces() {
+        return places;
+    }
+
+    public void setPlaces(int places) {
+        this.places = places;
+    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Film film = (Film) o;
-        return filmId == film.filmId && length == film.length && Objects.equals(title, film.title) && Objects.equals(year, film.year) && rating == film.rating && Objects.equals(filmCategories, film.filmCategories) && Objects.equals(languages, film.languages) && Objects.equals(actors, film.actors);
+        return filmId == film.filmId && length == film.length && places == film.places && Objects.equals(title, film.title) && Objects.equals(year, film.year) && rating == film.rating && Objects.equals(filmCategories, film.filmCategories) && Objects.equals(languages, film.languages) && Objects.equals(actors, film.actors);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(filmId, title, year, length, rating, filmCategories, languages, actors);
+        return Objects.hash(filmId, title, year, length, places, rating, filmCategories, languages, actors);
     }
 
     @Override
@@ -140,6 +150,7 @@ public class Film implements Serializable {
                 ", title='" + title + '\'' +
                 ", year=" + year +
                 ", length=" + length +
+                ", places=" + places +
                 ", rating=" + rating +
                 ", filmCategories=" + filmCategories +
                 ", languages=" + languages +

@@ -35,6 +35,7 @@ public class FilmService {
         foundFilm.setYear(film.getYear());
         foundFilm.setLength(film.getLength());
         foundFilm.setRating(film.getRating());
+        foundFilm.setPlaces(film.getPlaces());
         foundFilm.setLanguages(film.getLanguages());
         filmRepository.save(foundFilm);
         return foundFilm;
