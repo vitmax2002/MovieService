@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 8084
   servlet:
     context-path: /api/v1
   ssl:
@@ -7,7 +7,6 @@ server:
     key-store: classpath:KeyStore.jks
     key-store-password: 13047804kl
     key-store-type: JKS
-
 spring:
   application:
     name: MovieService

@@ -22,7 +22,7 @@ public class TomcatConfig {
             @Override
             protected void postProcessContext(Context context){
                 SecurityConstraint securityConstraint=new SecurityConstraint();
-                securityConstraint.setUserConstraint("CONFIDENTIAL");
+                //securityConstraint.setUserConstraint("CONFIDENTIAL");
                 SecurityCollection securityCollection=new SecurityCollection();
                 securityCollection.addPattern("/*");
                 securityConstraint.addCollection(securityCollection);
