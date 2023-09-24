@@ -2,11 +2,14 @@ server:
   port: 8084
   servlet:
     context-path: /api/v1
-  ssl:
-    key-alias: coda
-    key-store: classpath:KeyStore.jks
-    key-store-password: 13047804kl
-    key-store-type: JKS
+#  ssl:
+#    key-alias: coda
+#    key-store: classpath:KeyStore.jks
+#    key-store-password: 13047804kl
+#    key-store-type: JKS
+#    key-password: 13047804kl
+#    trust-store: file:C:/work/Microservices/DiscoveryService/src/main/resources/eureka-server.jks
+#    trust-store-password: 13047804kl
 spring:
   application:
     name: MovieService
@@ -17,10 +20,10 @@ spring:
     change-log: classpath:db/changelog/changelog-master.xml
 
 #eureka:
-#  instance:
 #    client:
 #      serviceUrl:
 #        defaultZone: http://localhost:8761/eureka/
+
 logging:
   file:
     name: C://work/app/app.log

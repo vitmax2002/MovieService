@@ -1,11 +1,9 @@
 package com.example.movieservice.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
 
@@ -39,6 +37,7 @@ public class Actor {
         return films;
     }
 
+    @JsonProperty
     public void setFilms(List<Film> films) {
         this.films = films;
     }

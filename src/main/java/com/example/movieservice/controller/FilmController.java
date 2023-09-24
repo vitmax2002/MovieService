@@ -1,6 +1,7 @@
 package com.example.movieservice.controller;
 
 import com.example.movieservice.model.Film;
+import com.example.movieservice.model.dto.FilmDto;
 import com.example.movieservice.service.FilmService;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
@@ -23,8 +24,8 @@ public class FilmController {
     }
 
     @PostMapping
-    public ResponseEntity<Film> addFilm(@Valid @RequestBody Film film){
-        Film createdFilm=filmService.addFilm(film);
+    public ResponseEntity<Film> addFilm(@Valid @RequestBody FilmDto filmDto){
+        Film createdFilm=filmService.addFilm(filmDto);
         return ResponseEntity.ok().body(createdFilm);
     }
 
@@ -35,8 +36,8 @@ public class FilmController {
     }
 
     @PutMapping("/{filmId}")
-    public ResponseEntity<Film> updateFilm(@PathVariable int filmId,@Valid @RequestBody Film film){
-        Film updatedFilm=filmService.updateFilm(filmId,film);
+    public ResponseEntity<Film> updateFilm(@PathVariable int filmId,@Valid @RequestBody FilmDto filmDto){
+        Film updatedFilm=filmService.updateFilm(filmId,filmDto);
         return ResponseEntity.ok().body(updatedFilm);
     }
 

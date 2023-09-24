@@ -39,10 +39,6 @@ public class Category implements Serializable {
         this.filmCategories = filmCategories;
     }
 
-    public Category(String name) {
-        this.name = name;
-    }
-
     public int getCategoryId() {
         return categoryId;
     }
