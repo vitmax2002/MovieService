@@ -82,6 +82,13 @@ public class FilmService {
         return foundFilm;
     }
 
+    public Film changeNumberOfPlaces(int filmId){
+        Film film= filmRepository.findById(filmId).orElseThrow(()->new NoSuchElementException("Nu exista film cu id: "+filmId));
+        film.setPlaces(film.getPlaces()-1);
+        filmRepository.save(film);
+        return film;
+    }
+
     public List<Film> getAllFilms(){
         List<Film> films=filmRepository.findAll();
         return films;

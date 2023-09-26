@@ -41,6 +41,12 @@ public class FilmController {
         return ResponseEntity.ok().body(updatedFilm);
     }
 
+    @PutMapping("/places/{filmId}")
+    public ResponseEntity<Film> changeNumberOfPlaces(@PathVariable(name = "filmId") int filmId) {
+     Film film=filmService.changeNumberOfPlaces(filmId);
+    return ResponseEntity.ok().body(film);
+    }
+
     @GetMapping
       public ResponseEntity<List<Film>> getAllFilms(){
         List<Film> films=filmService.getAllFilms();
@@ -52,4 +58,6 @@ public class FilmController {
         Film film=filmService.getFilmById(filmId);
         return ResponseEntity.ok().body(film);
     }
+
+
 }
